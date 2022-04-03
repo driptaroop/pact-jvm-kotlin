@@ -1,2 +1,2 @@
 rootProject.name = "pact-kotlin"
-include("consumer")
+include("consumer", "provider")

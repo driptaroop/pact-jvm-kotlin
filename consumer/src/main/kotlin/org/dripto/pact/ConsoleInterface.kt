@@ -2,7 +2,7 @@ package org.dripto.pact
 
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
-import java.util.Scanner
+import java.util.*
 
 @Component
 class ConsoleInterface(val productService: ProductService): CommandLineRunner{
@@ -34,10 +34,13 @@ class ConsoleInterface(val productService: ProductService): CommandLineRunner{
     }
 
     private fun printProduct(index: Int) {
-        val id: String = products[index - 1].id
-        val product = productService.getProduct(id)
-        println("Product Details\n---------------")
-        println(product)
+        val id = products[index - 1].id
+        try {
+            println(productService.getProduct(id))
+        } catch (e: Exception) {
+            println("Failed to load product $id")
+            println(e.message)
+        }
     }
 
     private fun parseChoice(choice: String) = try { choice.toInt() } catch (e: NumberFormatException) { null }
