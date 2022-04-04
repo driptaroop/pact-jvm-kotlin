@@ -23,6 +23,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("com.github.tomakehurst:wiremock-jre8:2.32.0")
+    testImplementation("au.com.dius.pact.consumer:junit5:4.3.6")
+    testImplementation("au.com.dius.pact.consumer:kotlin:4.3.6")
 }
 
 tasks.withType<KotlinCompile> {
